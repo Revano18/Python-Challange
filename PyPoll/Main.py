@@ -39,7 +39,7 @@ with open(file_to_load) as election_data:
             candidate_votes[row[2]] += 1
 
     # Print the ouput
-    voter_output = ""
+    candidate_output = ""
 
     # Loop through the candidates to determine vote percentages and identify the winner
     for candidate in candidate_votes:
@@ -48,7 +48,7 @@ with open(file_to_load) as election_data:
             # Get the vote count and calculate the percentage
             voteprcnt = (float(votes) / float(total_votes)) * 100
 
-            voter_output += f"{candidate}: {voteprcnt:.2f}%: ({votes}) \n"
+            candidate_output += f"{candidate}: {voteprcnt:.2f}%: ({votes}) \n"
             # Update the winning candidate if this one has more votes
             if votes > wincount:
                 wincount = votes
@@ -61,7 +61,7 @@ Election Results
 -------------------------
 Total Votes:{total_votes}
 -------------------------    
-{voter_output}
+{candidate_output}
 -------------------------
 {wincandidateoutput}
 """
